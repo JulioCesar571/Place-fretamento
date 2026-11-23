@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Place | Reserva de poltrona e embarque por QR Code</title>
+<title>Place</title>
 <meta name="description" content="Reserva de poltrona, passagem com QR Code e controle de embarque para o fretamento da sua faculdade ou associação. Funciona sem internet.">
 <link rel="canonical" href="https://placeembarque.com.br/">
 <meta name="robots" content="index,follow">
@@ -111,6 +111,20 @@ h3{font-size:clamp(1.35rem,2.2vw,1.7rem);font-weight:720;line-height:1.2;letter-
   .phones{height:470px}
   .phones .p-back{--pw:200px;left:10px;transform:rotate(-5deg)}
   .phones .p-front{--pw:232px;right:10px}
+}
+
+/* notebook: a primeira tela inteira cabe na altura da janela */
+@media (min-width:961px){
+  .phones{--hh:min(600px,max(420px,calc(100vh - 170px)));height:var(--hh);container-type:inline-size}
+  .phones .p-front{--pw:min(calc(var(--hh)*.483),60cqw)}
+  .phones .p-back{--pw:min(calc(var(--hh)*.417),52cqw)}
+}
+@media (min-width:961px) and (max-height:860px){
+  .hero h1{font-size:clamp(2.6rem,min(6.4vw,10.2vh),5.2rem);margin-bottom:18px}
+  .hero .lead{font-size:clamp(1rem,2.3vh,1.2rem);margin-bottom:24px}
+  .hero .wrap{padding-top:clamp(28px,4.5vh,64px);padding-bottom:clamp(32px,5vh,64px)}
+  .hero-proof{margin-top:22px}
+  .hero-facts{margin-top:14px}
 }
 
 /* ---------- letreiro LED ---------- */
@@ -373,6 +387,17 @@ dialog.sim-screen[open]{animation:simin .25s ease}
 .top .btn-sm .short{display:none}
 @media (max-width:520px){.top .btn-sm .long{display:none}.top .btn-sm .short{display:inline}}
 @media (max-width:340px){.brand-name{display:none}}
+/* notebook: celulares de demonstração escalam pela altura da janela (fica no fim para vencer as regras base) */
+#offline-phone{--pw:250px}#occ-phone{--pw:290px}
+@media (min-width:861px) and (max-height:860px){
+  .how .phone{--pw:min(320px,calc((100vh - 190px)/2.07))}
+  #offline-phone{--pw:min(250px,calc((100vh - 250px)/2.07))}
+  #occ-phone{--pw:min(290px,calc((100vh - 220px)/2.07))}
+}
+/* telas médias: o bloco "extensão do site" encolhe dentro da coluna */
+.ext{max-width:100%}
+.ext .browser{flex:1 1 0;min-width:0;width:auto;max-width:300px}
+.ext .browser .url{font-size:clamp(.7rem,1.5vw,1.02rem)}
 
 </style>
 </head>
@@ -591,7 +616,7 @@ dialog.sim-screen[open]{animation:simin .25s ease}
         <p>Estrada, túnel, ponto de embarque sem cobertura. Login, passagem com QR Code e marcação de presença continuam funcionando sem sinal.</p>
       </div>
       <div class="demo">
-        <div class="phone" id="offline-phone" style="--pw:250px"><div class="scrn"><div class="status"><span>9:41</span><span class="wifi"></span></div>
+        <div class="phone" id="offline-phone"><div class="scrn"><div class="status"><span>9:41</span><span class="wifi"></span></div>
           <div class="banner" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M3 9a14 14 0 0 1 18 0M6.5 12.5a9 9 0 0 1 11 0M10 16a4 4 0 0 1 4 0"/><circle cx="12" cy="19.2" r="1" fill="currentColor"/><path d="M3 3l18 18" stroke="#d6502f"/></svg>Sem internet</div>
           <div class="scr on has-banner" data-tpl="ticket" data-seed="31" data-compact="1"></div></div></div>
         <label class="switch"><input type="checkbox" id="offline-toggle" role="switch"><span class="track"></span>Testar sem internet</label>
@@ -605,7 +630,7 @@ dialog.sim-screen[open]{animation:simin .25s ease}
         <p>Quem organiza sabe quantas poltronas faltam antes de fretar. Menos ônibus vazio, menos custo.</p>
       </div>
       <div class="demo">
-        <div class="phone" id="occ-phone" style="--pw:290px"><div class="scrn"><div class="status"><span>9:41</span><span class="wifi"></span></div>
+        <div class="phone" id="occ-phone"><div class="scrn"><div class="status"><span>9:41</span><span class="wifi"></span></div>
           <div class="scr on" data-tpl="occ" data-rows="7" data-seed="5"></div></div></div>
         <p class="note">Experimente: toque nas poltronas livres.</p>
       </div>
