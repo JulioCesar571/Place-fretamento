@@ -370,7 +370,8 @@ dialog.sim-screen[open]{animation:simin .25s ease}
   .sim-steps li{padding:10px 12px;gap:10px;font-size:.95rem}
 }
 @media (max-width:480px){.top .wrap{gap:10px}.brand{font-size:1.25rem;gap:8px}.top .btn-sm{padding:0 14px;font-size:.88rem}.nav a{font-size:.9rem}}
-@media (max-width:380px){.top .btn-sm .long{display:none}}
+.top .btn-sm .short{display:none}
+@media (max-width:520px){.top .btn-sm .long{display:none}.top .btn-sm .short{display:inline}}
 @media (max-width:340px){.brand-name{display:none}}
 
 </style>
@@ -388,7 +389,7 @@ dialog.sim-screen[open]{animation:simin .25s ease}
       <a href="#para-quem">Para quem</a>
       <a href="#perguntas">Perguntas</a>
     </nav>
-    <a class="btn btn-ghost btn-sm" data-app href="/app/">Entrar<span class="long"> no app</span></a>
+    <a class="btn btn-ghost btn-sm" href="#contato"><span class="short">Contato</span><span class="long">Pedir informações</span></a>
   </div>
 </header>
 
@@ -721,7 +722,7 @@ dialog.sim-screen[open]{animation:simin .25s ease}
       <p>Reserva de poltronas, passagem com QR Code e controle de embarque para fretamento.</p>
     </div>
     <ul>
-      <li><a data-app href="/app/">Entrar no app</a></li>
+      <li><a href="#contato">Pedir informações</a></li>
       <li><a href="#como-funciona">Como funciona</a></li>
       <li><a href="#perguntas">Perguntas frequentes</a></li>
       <li><a href="#contato">Levar para minha organização</a></li>
@@ -737,7 +738,6 @@ dialog.sim-screen[open]{animation:simin .25s ease}
    CONFIGURAÇÃO — preencha estes valores antes de publicar
    ===================================================================== */
 var CONFIG={
-  appUrl:'https://placeembarque.com.br/', // endereço onde o app do Place está publicado
   whatsapp:'',             // só números, com DDI e DDD. Ex.: '5555999999999'
   email:'',                // e-mail de contato. Ex.: 'contato@placeembarque.com.br'
   instagram:''             // endereço do perfil. Ex.: 'https://instagram.com/seuperfil'
@@ -964,7 +964,6 @@ function paintDots(ctx,data,from,ncols,pitch,ox,pitchY,glow){
 })();
 
 /* ---------- links, contato e rodapé ---------- */
-$$('[data-app]').forEach(function(a){a.setAttribute('href',CONFIG.appUrl)});
 $('#ano').textContent=new Date().getFullYear();
 (function(){
   var ul=$('footer ul');
